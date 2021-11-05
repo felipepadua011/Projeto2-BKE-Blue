@@ -1,0 +1,23 @@
+[
+    {
+        "nome": "Minas Gerais",
+        "regiao": "Sudeste",
+        "populacao":  "20,87 milhões",
+        "valsalmin": "R$ 1.100,00"
+    },
+    {
+        "nome": "São Paulo",
+        "regiao": "Sudeste",
+        "populacao":  "12,33 milhões",
+        "valsalmin": "R$ 1.108,38"
+    },
+    {
+        "nome": "Rio de Janeiro",
+        "regiao": "Sudeste",
+        "populacao":  "6,748 milhões",
+        "valsalmin": "R$ 1.100,00"
+    }
+]
+
+
+

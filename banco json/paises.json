@@ -1,0 +1,20 @@
+[
+    {
+        "nome": "Brasil",
+        "populacao":  "212,6 milhões",
+        "linguamae": "Português",
+        "pib": "1,445 trilhão USD"
+    },
+    {
+        "nome": "Estados Unidos",
+        "populacao":  "329,5 milhões",
+        "linguamae": "Inglês",
+        "pib": "20,94 trilhões USD"
+    },
+    {
+        "nome": "China",
+        "populacao":  "1,402 bilhão",
+        "linguamae": "Mandarim",
+        "pib": "14,72 trilhões USD"
+    }
+]
