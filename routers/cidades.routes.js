@@ -35,20 +35,14 @@ router.post('/add', async (req,res) => { //add nova pessoa no banco
     if(!req.body.nome) {
         res.status(400).json({message: "Nome não informado."});
         return;
-    } else if (!req.body.tecnico) {
-        res.status(400).json({message: "Tecnico não informado."});
+    } else if (!req.body.populacao) {
+        res.status(400).json({message: "População não informado."});
         return;
-    } else if (!req.body.titulos) {
-        res.status(400).json({message: "Titulos não informado."});
+    } else if (!req.body.qntdbair) {
+        res.status(400).json({message: "Quantidade de bairros não informado."});
         return;
-    } else if (!req.body.jogadores) {
-        res.status(400).json({message: "Jogadores não informado."});
-        return;
-    } else if (!req.body.torcida) {
-        res.status(400).json({message: "Torcida não informado."});
-        return;
-    } else if (!req.body.estadio) {
-        res.status(400).json({message: "Estádio não informado."});
+    } else if (!req.body.nivercidad) {
+        res.status(400).json({message: "Aniverssario da cidade não informado."});
         return;
     };
 

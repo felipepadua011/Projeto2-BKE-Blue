@@ -1,12 +1,11 @@
 const express = require("express"); 
 const app = express();  
+require('dotenv').config();
 
 app.use(express.json());  
 
 const Conn = require("./model/conn/index"); 
 Conn(); 
-
-const port = 3000; 
 
 app.get("/", (req, res) => {    
     res.json({message: "Bem vindos ao meu segundo projeto de BackEnd!!"});
@@ -15,6 +14,6 @@ app.get("/", (req, res) => {
 const cidadesRouter = require("./routers/cidades.routes");
 app.use('/cidades', cidadesRouter);
 
-app.listen(port, () => {
-    console.log(`Servidor rodando em: http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Servidor rodando em: http://localhost:${process.env.PORT}`);
 });
