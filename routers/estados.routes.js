@@ -47,9 +47,9 @@ router.post('/add', async (req,res) => {
     };
 
     await Estado.create(req.body).then(() => {
-        res.status(200).json({message: "cadastrado com sucesso"});
+        res.status(200).json({message: "Cadastrado com sucesso"});
     }).catch((err) => {
-        res.status(400).json({message: "algo esta errado"});
+        res.status(400).json({message: "Algo esta errado"});
         console.error(err);
     });
 });
@@ -59,7 +59,7 @@ router.put('/update/:id', async (req, res) => {
     await Estado.updateOne({ _id: id }, req.body).then( () => {
         res.status(200).json({message: "Atualizado com sucesso"});
     }).catch((err) => {
-        res.status(400).json({message: "algo esta errado"});
+        res.status(400).json({message: "Algo esta errado"});
         console.error(err);
     });
 });
@@ -68,7 +68,7 @@ router.delete('/delete/:id', async (req, res) => {
     await Estado.deleteOne({ _id: req.params.id }, req.body).then( () => {
         res.status(200).json({message: "Deletado com sucesso"});
     }).catch((err) => {
-        res.status(400).json({message: "algo esta errado"});
+        res.status(400).json({message: "Algo esta errado"});
         console.error(err);
     });
 });
