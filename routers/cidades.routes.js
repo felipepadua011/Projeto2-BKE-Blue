@@ -30,7 +30,7 @@ router.get('/findnome/:nome', async (req, res) => {
         });
 });
 
-router.post('/add', async (req,res) => { //add nova pessoa no banco
+router.post('/add', async (req,res) => { 
 
     if(!req.body.nome) {
         res.status(400).json({message: "Nome não informado."});

@@ -14,6 +14,9 @@ app.get("/", (req, res) => {
 const cidadesRouter = require("./routers/cidades.routes");
 app.use('/cidades', cidadesRouter);
 
+const estadosRouter = require("./routers/estados.routes");
+app.use('/estados', estadosRouter);
+
 app.listen(process.env.PORT, () => {
     console.log(`Servidor rodando em: http://localhost:${process.env.PORT}`);
 });
