@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     res.status(200).json({message: 'Estados OK'});
 });
 
-router.get('/listar', async (req, res) => {
+router.get('/viewestados', async (req, res) => {
     await Estado.find({}).then((estados) => {
         res.status(200).json(estados);
         }).catch((err) => {
@@ -30,7 +30,7 @@ router.get('/findnome/:nome', async (req, res) => {
         });
 });
 
-router.post('/add', async (req,res) => { 
+router.post('/addestado', async (req,res) => { 
 
     if(!req.body.nome) {
         res.status(400).json({message: "Nome não informado."});
@@ -54,7 +54,7 @@ router.post('/add', async (req,res) => {
     });
 });
 
-router.put('/update/:id', async (req, res) => {
+router.put('/editestado/:id', async (req, res) => {
     const id = req.params.id;   
     await Estado.updateOne({ _id: id }, req.body).then( () => {
         res.status(200).json({message: "Atualizado com sucesso"});
@@ -64,7 +64,7 @@ router.put('/update/:id', async (req, res) => {
     });
 });
 
-router.delete('/delete/:id', async (req, res) => { 
+router.delete('/delestado/:id', async (req, res) => { 
     await Estado.deleteOne({ _id: req.params.id }, req.body).then( () => {
         res.status(200).json({message: "Deletado com sucesso"});
     }).catch((err) => {

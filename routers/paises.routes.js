@@ -6,7 +6,7 @@ router.get('/', (req, res) => {
     res.status(200).json({message: 'Paises OK'});
 });
 
-router.get('/listar', async (req, res) => {
+router.get('/viewpais', async (req, res) => {
     await Pais.find({}).then((paises) => {
         res.status(200).json(paises);
         }).catch((err) => {
@@ -30,19 +30,19 @@ router.get('/findnome/:nome', async (req, res) => {
         });
 });
 
-router.post('/add', async (req,res) => { 
+router.post('/addpais', async (req,res) => { 
 
     if(!req.body.nome) {
         res.status(400).json({message: "Nome não informado."});
         return;
-    } else if (!req.body.regiao) {
-        res.status(400).json({message: "Região não informada."});
-        return;
     } else if (!req.body.populacao) {
         res.status(400).json({message: "População não informada."});
         return;
-    } else if (!req.body.valsalmin) {
-        res.status(400).json({message: "Valor do salário minímo não informado."});
+    } else if (!req.body.linguamae) {
+        res.status(400).json({message: "Língua Mãe não informada."});
+        return;
+    } else if (!req.body.pib) {
+        res.status(400).json({message: "PIB não informado."});
         return;
     };
 
@@ -54,7 +54,7 @@ router.post('/add', async (req,res) => {
     });
 });
 
-router.put('/update/:id', async (req, res) => {
+router.put('/editpais/:id', async (req, res) => {
     const id = req.params.id;   
     await Pais.updateOne({ _id: id }, req.body).then( () => {
         res.status(200).json({message: "Atualizado com sucesso"});
@@ -64,7 +64,7 @@ router.put('/update/:id', async (req, res) => {
     });
 });
 
-router.delete('/delete/:id', async (req, res) => { 
+router.delete('/delpais/:id', async (req, res) => { 
     await Pais.deleteOne({ _id: req.params.id }, req.body).then( () => {
         res.status(200).json({message: "Deletado com sucesso"});
     }).catch((err) => {
