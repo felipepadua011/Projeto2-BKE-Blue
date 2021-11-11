@@ -15,15 +15,6 @@ router.get('/listall', async (req, res) => {
         });
 });
 
-router.get('/listid/:id', async (req, res) => {
-    await Cidade.findById({ _id: id }, req.body).then( () => {
-        res.status(200).json({message: "Atualizado com sucesso"});
-    }).catch((err) => {
-        res.status(400).json({message: "Algo esta errado"});
-        console.error(err);
-    });
-});
-
 router.get('/listname/:nome', async (req, res) => {
     const nome = req.params.nome;
     await Cidade.findOne({ nome: nome }).then((cidades) => {
