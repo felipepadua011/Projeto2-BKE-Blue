@@ -497,4 +497,109 @@
   res.status(400).json({message: "Algo esta errado"});
   ```
 
-  `Obrigado!` 
+  
+
+## **Para Iniciar o Projeto Local Foi Necessário Instalar Os Seguintes Comandos**
+
+**`npm init -y`**      (inicia um projeto node).
+
+**`npm i express`**     (instala as dependências do express).
+
+**`npm i nodemon`**  (criará a pasta node módulos).
+
+**`npm i mongoose`**    (instala a lib para trabalhar com mongo db).
+
+**`npm i dotenv`**     (instala a lib para tratativa de var de ambiente).
+
+## Subindo para o Mongo Atlas na Nuvem
+
+- Primeiro deve criar sua conta no Mongo Atlas, após isso:
+
+  ​                     **Importando o mongoose no arquivo index.js da pasta conn que fica dentro de outra pasta chamada model**:
+
+  ```javascript
+  const mongoose = require("mongoose"); 
+  ```
+
+  ****
+
+​                            **Então deve definir a string de conexão local ou atlas:**
+
+```javascript
+async function Conn(){
+    await mongoose.connect("mongodb://localhost:27017/**AQUI VAI O NOME DO SEU PROJETO, IGUAL DEFINIDO NA HORA DA CRIAÇÃO NO MONGO ATLAS**",{ 
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    }).then(() => { // tudo certo faz isso
+        console.log("MongoDB esta conectado");
+    }).catch((err) => { // caso de erro faz isso
+        console.error(err);
+    });
+}
+```
+
+## **Na pasta model temos 3 arquivos diferentes com suas seguintes definições e valores:**
+
+​                                                                             **`cidades.js`**
+
+```javascript
+const mongoose = require("mongoose");  //importando o mongoose
+
+const cidadesModel = new mongoose.Schema({ //criando nosso modelo do banco
+    nome: { type: String, required: true }, // chave/ valor: tipo do valor e se é obrigatorio
+    quantidadebairros: { type: String, required: true },
+    populacao: { type: String, required: true }, 
+    aniversariocidade: { type: String, required: true },
+    dataCriacao: { type: Date, default: Date.now } //default, valor padrao caso nao seja passado
+});
+
+const Cidade = mongoose.model("Cidades",cidadesModel); // a criacao do modelo na colection Cidades
+
+module.exports = Cidade; //exportando o modelo pronto
+```
+
+​                                                                        **`estados.js`**
+
+```javascript
+const mongoose = require("mongoose"); 
+
+const estadosModel = new mongoose.Schema({ 
+    nome: { type: String, required: true }, 
+    regiao: { type: String, required: true }, 
+    populacao: { type: String, required: true }, 
+    valsalmin: { type: String, required: true }, 
+    dataCriacao: { type: Date, default: Date.now }  
+});
+
+const Estado = mongoose.model("Estados", estadosModel); 
+
+module.exports = Estado; 
+```
+
+​                                                                        **`pais.js`**
+
+```javascript
+const mongoose = require("mongoose"); 
+
+const paisesModel = new mongoose.Schema({ 
+    nome: { type: String, required: true }, 
+    populacao: { type: String, required: true }, 
+    linguamae: { type: String, required: true }, 
+    pib: { type: String, required: true }, 
+    dataCriacao: { type: Date, default: Date.now } 
+});
+
+const Pais = mongoose.model("Paises", paisesModel); 
+
+module.exports = Pais; 
+```
+
+Lembrando que a **const paisesModel = new mongoose.Schema({ });** cria uma API em seu banco automaticamente caso não exista.
+
+
+
+#####                                                                                                    Trabalho Realizado em Dupla:
+
+​                                                               Felipe Pádua e Wellington Nascimento
+
+######                      Esperamos ter ajudado na compreensão básica de como funciona este projeto e o que consta em suas dependencias internas.
